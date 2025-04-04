@@ -1,3 +1,17 @@
+نام گذاری ها
+
+سایت
+dayi_hossein
+
+db
+dayi_hossein_ssg
+
+tables
+irr_rec ->  id | irr_duration | irr_start_datetime | irr_end_datetime | irr_real_duration | man_start | auto_start | man_stop | auto_stop | 
+auto_irr -> id | how_often | irr_duration | irr_datetime |  
+
+
+
 مواردی که باید اوکی کرد
 
 1-سایت
@@ -21,5 +35,14 @@
 
 
 برنامه زمانی
+
+قدم اول 
+سایت بیاد بالا ، بتونه دیتا رو از دیتا بیس بگیره و دستور مناسب رو به دیتا بیس ارسال کنه
+همجنان فایل "اینفورمیشن" رو میذاریم باشه
+
+قدم دوم
+برنامه ای اس پی به طوری باشه که همه اطلاعات آبیاری رو ای اس پی در دیتا بیس ثبت بکنه
+
+
 
 سایت و برنامه ای اس پی -----> یک هفته
