@@ -1,0 +1,7 @@
+{
+    "duration": 5,
+    "autoIrrEn": true,
+    "howOften": 1,
+    "hour": 1,
+    "minute": 3
+}

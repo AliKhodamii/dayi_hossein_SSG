@@ -1,0 +1,12 @@
+{
+    "valveCmd": "open",
+    "restartCmd": false,
+    "autoIrrEnCmd": false,
+    "durationCmd": 5,
+    "howOftenCmd": "1",
+    "hourCmd": "01",
+    "minuteCmd": "03",
+    "humHiLiCmd": 800,
+    "humLoLiCmd": 1024,
+    "espConfirm": false
+}

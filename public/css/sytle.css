@@ -213,7 +213,10 @@ Button {
   max-height: 80%;
   width: 20vh;
 }
-
+#autoIrrSave:active {
+  background-color: #084963;
+  color: black;
+}
 .recordTable {
   margin: auto;
   margin-top: 15px;

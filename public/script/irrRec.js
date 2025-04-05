@@ -4,7 +4,7 @@ httpReqAndCreateRecIrrTable();
 
 function httpReqAndCreateRecIrrTable() {
   const Http = new XMLHttpRequest();
-  const url = "http://sed-smarthome.ir/karkevand/php/getIrrRec.php";
+  const url = "http://sed-smarthome.ir/dayi_hossein/server/getIrrRec.php";
   Http.open("GET", url);
   Http.send();
 
@@ -24,7 +24,7 @@ function createTable() {
     html += "<td>" + tableData[i].farsiDay + "</td>";
     html += "<td>" + tableData[i].date + "</td>";
     html += "<td>" + tableData[i].time + "</td>";
-    html += "<td>" + tableData[i].duration + "</td>";
+    html += "<td>" + tableData[i].irr_duration + "</td>";
 
     html += "</tr>";
   }

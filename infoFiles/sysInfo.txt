@@ -1,0 +1,15 @@
+{
+    "working time": "0:0:43:15",
+    "current time": "24\/11\/11,00:16:47 00",
+    "valve": false,
+    "humidity": 0,
+    "copy": false,
+    "duration": 5,
+    "humHiLi": 800,
+    "humLoLi": 1024,
+    "lastIrrTS": 1731283256,
+    "autoIrrEn": true,
+    "howOften": 1,
+    "hour": 1,
+    "minute": 3
+}
