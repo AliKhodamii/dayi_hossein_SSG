@@ -4,7 +4,8 @@ httpReqAndCreateRecIrrTable();
 
 function httpReqAndCreateRecIrrTable() {
   const Http = new XMLHttpRequest();
-  const url = "http://sed-smarthome.ir/dayi_hossein/server/getIrrRec.php";
+  const url =
+    "http://sed-smarthome.ir/dayi_hossein/server/getIrrRec.php/?request=recentIrr";
   Http.open("GET", url);
   Http.send();
 

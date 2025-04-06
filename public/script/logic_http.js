@@ -11,6 +11,7 @@ var sysInfo;
 var cmdInfo;
 var autoIrrInfo;
 var client;
+var nextIrrDate;
 
 sysUrl = "http://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=sys";
 cmdUrl = "http://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=cmd";
@@ -221,16 +222,27 @@ function updateAutoIrr() {
     document.getElementById("autoIrrButton").classList.remove("greenButton");
     document.getElementById("autoIrrButton").classList.add("redButton");
 
-    //request last irr info
+    //request next irr date
+    const Http = new XMLHttpRequest();
+    const url =
+      "http://sed-smarthome.ir/dayi_hossein/server/getIrrRec.php/?request=nextIrrDate";
+    Http.open("GET", url);
+    Http.send();
 
-    // calculate next irr
-    var nextIrrTS = sysInfo.lastIrrTS + autoIrrInfo.howOften * 24 * 60 * 60;
-    var options = { year: "numeric", month: "numeric", day: "numeric" };
-    var date = new Date(nextIrrTS * 1000).toLocaleDateString("fa-IR", options);
+    Http.onreadystatechange = (e) => {
+      // console.log(Http.responseText);
+      var d = JSON.parse(Http.responseText);
+      nextIrrDate = d[0].nextIrrDate;
+
+      //update next irr section
+      document.getElementsByName("crossPic")[0].classList.add("displayNone");
+      document.getElementById("nextIrr").classList.remove("displayNone");
+      document.getElementById("nextIrr").textContent = nextIrrDate;
+    };
 
     document.getElementsByName("crossPic")[0].classList.add("displayNone");
     document.getElementById("nextIrr").classList.remove("displayNone");
-    document.getElementById("nextIrr").textContent = date;
+    document.getElementById("nextIrr").textContent = nextIrrDate;
 
     // update irrigation howOften
     document.getElementsByName("crossPic")[1].classList.add("displayNone");
@@ -415,6 +427,9 @@ function saveBtnClick() {
   // document.getElementById("autoIrrSave").classList.remove("redButton");
   // document.getElementById("autoIrrSave").classList.add("loadingButton");
   // document.getElementById("autoIrrSave").textContent = "در حال ارسال...";
+
+  updateAutoIrrSec = true;
+  updateAutoIrr();
 }
 
 function insertIntoDB() {

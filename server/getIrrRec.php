@@ -15,7 +15,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "  SELECT * FROM `irr_rec` ORDER BY `irr_end_datetime` DESC limit 5  ";
+if($_GET['request'] == 'recentIrr'){
+
+$sql = "  SELECT * FROM `irr_rec` ORDER BY `irr_start_datetime` DESC limit 5  ";
 $result = $conn->query($sql);
 
 $data = array();
@@ -36,3 +38,33 @@ if ($result->num_rows > 0) {
 $conn->close();
 header('Content-Type: application/json');
 echo json_encode($data);
+}
+
+if($_GET['request'] == 'nextIrrDate'){
+    $sql = "SELECT * FROM irr_rec ORDER BY irr_start_datetime DESC LIMIT 1";
+
+    $result = $conn->query($sql);
+    $rows = array();
+
+    if($result->num_rows >0){
+        while($row = $result->fetch_assoc()){
+            $rows[]=$row;
+        }
+    }
+
+    $autoIrrInfoJson = file_get_contents("../infoFiles/autoIrrInfo.txt");
+    $autoIrrInfo = json_decode($autoIrrInfoJson);
+    $howOften = $autoIrrInfo ->howOften;
+
+
+    $lastIrrDatetime = new DateTime ($rows[0]['irr_start_datetime']);
+    $lastIrrDatetime->add(new DateInterval("P{$howOften}D"));
+    $nextIrrDate = $lastIrrDatetime->format('Y-m-d');
+    
+    $rows[0]["nextIrrDate"] =  (new jDateTime(false, true))->convertFormatToFormat('d / m / Y', 'Y-m-d', $nextIrrDate );
+
+    $conn->close();
+    header('Content-Type: application/json');
+    echo json_encode($rows);
+
+}
