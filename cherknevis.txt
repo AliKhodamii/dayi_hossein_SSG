@@ -33,8 +33,20 @@ auto_irr -> id | how_often | irr_duration | irr_datetime |
 
 
 
+---------ESP---------
+String json_encode(JsonDocument data)
+JsonDocument json_decode(String Json)
+post(url,destination,data)
 
-برنامه زمانی
+
+
+در شروع مقدار های اولیه ست میشه.
+یه پست به سیس اینفو و یک پست به سی ام دی.
+
+
+
+
+---------برنامه زمانی---------
 
 قدم اول 
 سایت بیاد بالا ، بتونه دیتا رو از دیتا بیس بگیره و دستور مناسب رو به دیتا بیس ارسال کنه
