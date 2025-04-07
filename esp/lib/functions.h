@@ -45,7 +45,7 @@ int httpPost(String url , String destination , String data){
     http.begin(client , url);
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     int httpResCode = http.POST(data);
-    Serial.print("http Response Code: ");
+    Serial.print("Http post response code: ");
     Serial.println(httpResCode);
     return httpResCode;
 }
@@ -58,7 +58,7 @@ String httpGet(String url , String filename) {
   int httpResponseCode = http.GET();
   String payload = "{}"; 
   if (httpResponseCode>0) {
-    Serial.print("HTTP Response code: ");
+    Serial.print("Http get response code: ");
     Serial.println(httpResponseCode);
     payload = http.getString();
   }
@@ -77,4 +77,18 @@ int humidity_read(){
     }
     humidity = humidity/10;
     return humidity;
+}
+
+String time(){
+    int mil = millis();
+    int d = mil/86400000;
+    mil -= (d*86400000);
+    int h = mil/3600000;
+    mil -=h*3600000;
+    int m = mil/60000;
+    mil -= m*60000;
+    int s = mil / 1000;
+
+    String time = String(d) + " : " + String(h) + " : " + String(m) + " : " + String(s);
+    return time;
 }
