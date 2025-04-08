@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Tehran');
 
 //addresses for cron job
 $cmdAd = "public_html/dayi_hossein/infoFiles/cmd.txt";
