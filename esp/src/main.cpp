@@ -19,6 +19,7 @@ String valveCmd = "";
 // urls
 String postUrl = "http://sed-smarthome.ir/dayi_hossein/server/postInfo.php";
 String getUrl = "http://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php";
+String DbUrl = "http://sed-smarthome.ir/dayi_hossein/server/insertIrrRec.php";
 
 
 JsonDocument sysInfo,cmd;
@@ -126,6 +127,9 @@ void loop(){
       cmd["confirm"] = true;
       cmdJson = json_encode(cmd);
       httpPost(postUrl,"cmdInfo",cmdJson);
+
+      // insert new irr record to database
+      httpPost(DbUrl,"insertIrrRec",sysInfoJson);
     }
 
     // check if close command is sent
