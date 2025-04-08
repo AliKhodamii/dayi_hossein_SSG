@@ -3,12 +3,13 @@ date_default_timezone_set('Asia/Tehran');
 if($_POST["insertIrrRec"] != null){
 
     // get duration from ESP data
-    $sysInfoJson = $_POST["insertIntoDB"];
-    $sysInfo = json_decode($sysInfoJson);
+    $sysInfoJson = $_POST["insertIrrRec"];
+    $sysInfo = json_decode($sysInfoJson,true);
 
     //create date of irr
     $newDatetime = date('Y-m-d H:i:s');
-    $duration = (int)$sysInfo->duration;
+    $duration = $sysInfo['duration'];
+    file_put_contents("debug.txt" , print_r($sysInfo, true));
 
     //connect info
     $hostname = 'localhost:3306';
