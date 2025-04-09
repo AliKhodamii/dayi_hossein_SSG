@@ -100,12 +100,12 @@ String httpGet(String url, String filename)
     return payload;
 }
 
-int humidity_read()
+int humidity_read(int analogPin)
 {
     int humidity = 0;
     for (int i = 0; i < 10; i++)
     {
-        humidity += analogRead(A0);
+        humidity += analogRead(analogPin);
     }
     humidity = humidity / 10;
     return humidity;

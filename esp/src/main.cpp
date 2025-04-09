@@ -6,6 +6,7 @@
 
 // pins
 int valveP = D7;
+int humidityP = A0;
 
 // system variables
 bool valve = true;
@@ -38,6 +39,8 @@ int postResCode = 0;
 void setup()
 {
   pinMode(valveP, OUTPUT);
+  pinMode(humidityP, INPUT);
+
   digitalWrite(valveP, LOW);
 
   Serial.begin(9600);
@@ -53,7 +56,7 @@ void setup()
 
   // set initial values
   valve = false;
-  humidity = humidity_read();
+  humidity = humidity_read(humidityP);
 
   // get duration from sysInfo on host
   sysInfoJson = httpGet(getUrl, "sys");
@@ -200,7 +203,7 @@ void loop()
     // post status
     Serial.println("Posting status");
 
-    humidity = humidity_read();
+    humidity = humidity_read(humidityP);
     sysInfo["time"] = time();
     sysInfo["valve"] = valve;
     sysInfo["duration"] = duration;
