@@ -13,11 +13,11 @@ var autoIrrInfo;
 var client;
 var nextIrrDate;
 
-sysUrl = "http://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=sys";
-cmdUrl = "http://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=cmd";
+sysUrl = "https://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=sys";
+cmdUrl = "https://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=cmd";
 autoIrrUrl =
-  "http://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=autoIrr";
-postCmdUrl = "http://sed-smarthome.ir/dayi_hossein/server/postInfo.php";
+  "https://sed-smarthome.ir/dayi_hossein/server/getInfoWeb.php?file=autoIrr";
+postCmdUrl = "https://sed-smarthome.ir/dayi_hossein/server/postInfo.php";
 
 getAutoIrrInfo(autoIrrUrl);
 getCmdInfo(cmdUrl);
@@ -225,7 +225,7 @@ function updateAutoIrr() {
     //request next irr date
     const Http = new XMLHttpRequest();
     const url =
-      "http://sed-smarthome.ir/dayi_hossein/server/getIrrRec.php/?request=nextIrrDate";
+      "https://sed-smarthome.ir/dayi_hossein/server/getIrrRec.php/?request=nextIrrDate";
     Http.open("GET", url);
     Http.send();
 
@@ -441,7 +441,7 @@ function insertIntoDB() {
   var sendData = { duration: sysInfo.duration };
   var sendDataJson = JSON.stringify(sendData);
   console.log(sendDataJson);
-  fetch("http://sed-smarthome.ir/karkevand/php/insertToDb.php", {
+  fetch("https://sed-smarthome.ir/karkevand/php/insertToDb.php", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: "insertIntoDB=" + sendDataJson,
