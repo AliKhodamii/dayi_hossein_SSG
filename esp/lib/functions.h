@@ -1,3 +1,6 @@
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <ArduinoJson.h>
@@ -99,7 +102,14 @@ String httpGet(String url, String filename)
     http.end();
     return payload;
 }
-
+int scale_to_100(int num, int high_lim, int low_lim)
+{
+    if (high_lim == low_lim)
+        return 0; // avoid division by zero
+    int scaled = (num - low_lim) * 100.0 / (high_lim - low_lim);
+    // optional: constrain result to stay in 0–100 range
+    return constrain(scaled, 0, 100);
+}
 int humidity_read(int analogPin)
 {
     int humidity = 0;
@@ -108,7 +118,37 @@ int humidity_read(int analogPin)
         humidity += analogRead(analogPin);
     }
     humidity = humidity / 10;
+
+    humidity = scale_to_100(humidity, 500, 800);
     return humidity;
+}
+void updateHumidity(int &humidity, int sensorPin)
+{
+    const int numReadings = 10;
+    static int readings[numReadings];
+    static int readIndex = 0;
+    static int total = 0;
+    static bool initialized = false;
+
+    if (!initialized)
+    {
+        for (int i = 0; i < numReadings; i++)
+        {
+            readings[i] = analogRead(sensorPin);
+            total += readings[i];
+        }
+        initialized = true;
+    }
+
+    total -= readings[readIndex];
+    readings[readIndex] = analogRead(sensorPin);
+    total += readings[readIndex];
+
+    readIndex = (readIndex + 1) % numReadings;
+
+    humidity = total / numReadings;
+
+    humidity = scale_to_100(humidity, 500, 800);
 }
 
 String time()
@@ -125,3 +165,5 @@ String time()
     String time = String(d) + " : " + String(h) + " : " + String(m) + " : " + String(s);
     return time;
 }
+
+#endif

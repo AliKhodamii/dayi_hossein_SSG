@@ -8,10 +8,16 @@
 int valveP = D7;
 int humidityP = A0;
 
+// Moving average state
+const int numReadings = 10;
+int readings[numReadings];
+int readIndex = 0;
+int total = 0;
+
 // system variables
 bool valve = true;
 bool copy = false;
-int humidity = 1000;
+int humidity = 0;
 long unsigned int duration = 0;
 
 // cmd variables
@@ -43,6 +49,12 @@ void setup()
 
   digitalWrite(valveP, LOW);
 
+  // Initialize readings array
+  for (int i = 0; i < numReadings; i++)
+  {
+    readings[i] = 0;
+  }
+
   Serial.begin(9600);
   Serial.println("");
   Serial.println("");
@@ -56,7 +68,7 @@ void setup()
 
   // set initial values
   valve = false;
-  humidity = humidity_read(humidityP);
+  updateHumidity(humidity, humidityP);
 
   // get duration from sysInfo on host
   sysInfoJson = httpGet(getUrl, "sys");
