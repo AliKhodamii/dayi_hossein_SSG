@@ -6,6 +6,7 @@
 
 // pins
 int valveP = D7;
+int signalP = D0;
 int humidityP = A0;
 
 // Moving average state
@@ -45,9 +46,11 @@ int postResCode = 0;
 void setup()
 {
   pinMode(valveP, OUTPUT);
+  pinMode(signalP, OUTPUT);
   pinMode(humidityP, INPUT);
 
   digitalWrite(valveP, LOW);
+  digitalWrite(signalP, LOW);
 
   // Initialize readings array
   for (int i = 0; i < numReadings; i++)

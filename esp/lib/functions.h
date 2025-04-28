@@ -6,6 +6,14 @@
 #include <ArduinoJson.h>
 #include <ESP8266HTTPClient.h>
 
+void signal()
+{
+    int signalP = D0;
+    digitalWrite(signalP, HIGH);
+    delay(200);
+    digitalWrite(signalP, LOW);
+}
+
 bool wifi_connect(String ssid, String password)
 {
     WiFi.begin(ssid, password);
@@ -67,6 +75,7 @@ int httpPost(String url, String destination, String data)
     }
 
     Serial.println(" ...Succeed.");
+    signal();
     return httpResCode;
 }
 
@@ -100,6 +109,7 @@ String httpGet(String url, String filename)
     }
 
     http.end();
+    signal();
     return payload;
 }
 int scale_to_100(int num, int high_lim, int low_lim)
