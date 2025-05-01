@@ -62,6 +62,10 @@ function getInfo(url) {
         updateUI();
       }
     });
+  if (sysInfo != null) {
+    document.getElementsByClassName("waiting")[0].style.display = "none";
+    document.getElementsByClassName("mainContainer")[0].style.display = "block";
+  }
 }
 
 function getCmdInfo(url) {
@@ -468,3 +472,20 @@ function autoIrrPost() {
     console.log("Request complete! response:", res);
   });
 }
+
+// const numberInputs = document.querySelectorAll('input[type="number"]');
+
+// numberInputs.map((input) => {
+//   // Add event listener
+//   input.addEventListener("input", function (e) {
+//     // Clear any old status
+//     this.setCustomValidity("");
+
+//     // Check for invalid state(s)
+//     if (this.validity.rangeOverflow) {
+//       this.setCustomValidity("Selected quantity is more than stock status");
+//     } else if (this.validity.rangeUnderflow) {
+//       this.setCustomValidity("Selected quantity is less than stock status");
+//     }
+//   });
+// });
