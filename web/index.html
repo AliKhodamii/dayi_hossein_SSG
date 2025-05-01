@@ -86,8 +86,10 @@
                             type="number"
                             name="durationMin"
                             id="durationMin"
-                            value="20"
                             onfocus="this.select()"
+                            inputmode="numeric"
+                            pattern="\d*"
+                            maxlength="2"
                             required
                           />
                         </div>
@@ -267,7 +269,7 @@
     </div>
 
     <!-- <script src="./script/mqtt.js"></script> -->
-    <script src="./public/script/logic_http.js?v=1.3"></script>
+    <script src="./public/script/logic_http.js?v=1.4"></script>
     <script src="./public/script/irrRec.js"></script>
   </body>
 </html>

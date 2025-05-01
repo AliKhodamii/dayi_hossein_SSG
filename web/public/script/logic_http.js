@@ -472,20 +472,17 @@ function autoIrrPost() {
     console.log("Request complete! response:", res);
   });
 }
+const numberInputs = document.querySelectorAll('input[type="number"]');
+numberInputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    if (input.value.length > 2) {
+      input.value = input.value.slice(0, 2);
+    }
+  });
+});
 
-// const numberInputs = document.querySelectorAll('input[type="number"]');
-
-// numberInputs.map((input) => {
-//   // Add event listener
-//   input.addEventListener("input", function (e) {
-//     // Clear any old status
-//     this.setCustomValidity("");
-
-//     // Check for invalid state(s)
-//     if (this.validity.rangeOverflow) {
-//       this.setCustomValidity("Selected quantity is more than stock status");
-//     } else if (this.validity.rangeUnderflow) {
-//       this.setCustomValidity("Selected quantity is less than stock status");
-//     }
-//   });
+// input.addEventListener("input", () => {
+//   if (input.value.length > 2) {
+//     input.value = input.value.slice(0, 2);
+//   }
 // });
