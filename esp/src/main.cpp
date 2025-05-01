@@ -64,8 +64,8 @@ void setup()
   Serial.println("");
   Serial.println("");
 
-  String ssid = "TP_Sed";
-  String password = "87654321";
+  String ssid = "Wifinet4";
+  String password = "4BagheNesfeJahan2024";
 
   wifi_connect(ssid, password);
 
