@@ -6,12 +6,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./public/css/sytle.css?v=1.3"
+      href="./public/css/sytle.css?v=1.4"
     />
     <title>SSG - Dayi Hossein</title>
   </head>
   <body>
-    <div class="waiting">
+    <div class="waiting" style="display: none">
       <h1>
         در حال دریافت اطلاعات
         <img
@@ -22,7 +22,7 @@
       </h1>
       <h2>لطفا صبر کنید</h2>
     </div>
-    <div class="mainContainer" style="display: none">
+    <div class="mainContainer" style="display: block">
       <div class="square humidityDiv">
         <table class="humidityTable">
           <tr>
@@ -68,8 +68,8 @@
             <td style="width: 45%">
               <table>
                 <tr>
-                  <td id="irrTimeTd" style="width: 70%">
-                    <div>
+                  <td id="irrTimeTd" style="width: 80%">
+                    <div style="width: 100px">
                       <img src="./public/pics/timer.png" alt="timer" />&nbsp;مدت
                       آبیاری :
                     </div>
@@ -80,8 +80,15 @@
                     </div>
 
                     <div id="durationTimeDiv">
-                      <div style="display: table; margin: auto">
-                        <div style="display: table-cell">
+                      <div style="display: flex; align-items: end">
+                        <div
+                          style="
+                            display: table-cell;
+                            /* margin-right: 10px; */
+                            text-align: center;
+                          "
+                        >
+                          دقیقه
                           <input
                             type="number"
                             name="durationMin"
@@ -93,13 +100,13 @@
                             required
                           />
                         </div>
-                        <span>&nbsp;:&nbsp;</span>
-                        <div style="display: table-cell">
+                        <span>&nbsp;:&nbsp;&nbsp;</span>
+                        <div style="display: table-cell; text-align: center">
+                          ساعت
                           <input
                             type="number"
                             name="durationHour"
                             id="durationHour"
-                            value="0"
                             onfocus="this.select()"
                             oninvalid="this.setCustomValidity('Selected quantity is more than stock status')"
                             oninput="setCustomValidity()"
@@ -219,32 +226,46 @@
                 name="crossPic"
                 class="displayNone"
               />
-              <div class="" id="irrTimeDiv">
-                <span
-                  ><span
-                    ><input
-                      type="number"
-                      name="AIdurationMin"
-                      id="AIdurationMin"
-                      onfocus="this.select()"
-                      required /></span
-                ></span>
+              <div
+                class=""
+                id="irrTimeDiv"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: end;
+                  margin: 5px auto;
+                "
+              >
+                <div
+                  style="display: grid; margin: auto 5px; text-align: center"
+                >
+                  دقیقه<input
+                    type="number"
+                    name="AIdurationMin"
+                    id="AIdurationMin"
+                    onfocus="this.select()"
+                    required
+                    style="margin: auto"
+                  />
+                </div>
+
                 :
-                <span
-                  ><span
-                    ><input
-                      type="number"
-                      name="AIdurationHour"
-                      id="AIdurationHour"
-                      onfocus="this.select()"
-                      required /></span
-                ></span>
+                <div style="display: grid; margin: auto 5px">
+                  ساعت<input
+                    type="number"
+                    name="AIdurationHour"
+                    id="AIdurationHour"
+                    onfocus="this.select()"
+                    required
+                    style="margin: auto"
+                  />
+                </div>
               </div>
             </td>
           </tr>
           <tr>
             <td style="text-align: center" colspan="2">
-              <button id="autoIrrSave" class="loadingButton"></button>
+              <button id="autoIrrSave" class="loadingButton">ذخیره</button>
             </td>
           </tr>
         </table>

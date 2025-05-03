@@ -216,7 +216,7 @@ Button {
 }
 #autoIrrSave:active {
   background-color: #084963;
-  color: black;
+  /* color: black; */
 }
 .recordTable {
   margin: auto;
@@ -260,4 +260,22 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
+}
+
+#valveButton.greenButton:hover {
+  background-color: #75e284;
+  color: black;
+}
+#valveButton.redButton:hover {
+  background-color: #742e09;
+  color: white;
+}
+
+#autoIrrButton:hover {
+  background-color: #742e09;
+  color: white;
+}
+#autoIrrSave:hover {
+  background-color: #76c9e9;
+  color: black;
 }
