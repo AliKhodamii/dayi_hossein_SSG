@@ -271,8 +271,12 @@ input[type="number"] {
   color: white;
 }
 
-#autoIrrButton:hover {
+#autoIrrButton.redButton:hover {
   background-color: #742e09;
+  color: white;
+}
+#autoIrrButton.greenButton:hover {
+  background-color: #75e284;
   color: white;
 }
 #autoIrrSave:hover {

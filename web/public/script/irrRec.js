@@ -1,5 +1,11 @@
 tableData = [];
 
+function formatMinutes(minutes) {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return `${hours}:${mins.toString().padStart(2, "0")}`;
+}
+
 httpReqAndCreateRecIrrTable();
 
 function httpReqAndCreateRecIrrTable() {
@@ -19,13 +25,15 @@ function httpReqAndCreateRecIrrTable() {
 function createTable() {
   var html = "";
   for (var i = 0; i < tableData.length; i++) {
+    let time = "";
+    time = formatMinutes(Number(tableData[i].irr_duration));
     html += "<tr>";
 
     html += "<td>" + (i + 1).toString() + "</td>";
     html += "<td>" + tableData[i].farsiDay + "</td>";
     html += "<td>" + tableData[i].date + "</td>";
     html += "<td>" + tableData[i].time + "</td>";
-    html += "<td>" + tableData[i].irr_duration + "</td>";
+    html += "<td>" + time + "</td>";
 
     html += "</tr>";
   }
