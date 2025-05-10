@@ -6,7 +6,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./public/css/sytle.css?v=1.5"
+      href="./public/css/sytle.css?v=1.6"
     />
     <title>SSG - Dayi Hossein</title>
   </head>
@@ -131,143 +131,146 @@
       </div>
       <div class="square autoIrrDiv">
         <table class="autoIrrTable">
-          <tr>
-            <td colspan="2">
-              <h3 id="autoIrrEn">آبیاری خودکار روشن است</h3>
-            </td>
-          </tr>
-          <tr>
-            <td style="text-align: center" colspan="2">
-              <button id="autoIrrButton" class="redButton">خاموش کردن</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="./public/pics/calendar.png" alt="timer" /> تاریخ آبیاری
-              بعدی
-            </td>
-            <td>
-              <img
-                src="./public/pics/cross.png"
-                alt="cross"
-                name="crossPic"
-                class="displayNone"
-              />
-              <span id="nextIrr" style="font-size: 20px">1403/01/25</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="./public/pics/reapeat.png" alt="timer" /> تکرار آبیاری
-            </td>
-            <td>
-              <img
-                src="./public/pics/cross.png"
-                alt="cross"
-                name="crossPic"
-                class="displayNone"
-              />
-              <div class="" id="howOftenDiv">
-                هر
-                <span
-                  ><input
-                    type="number"
-                    name="howOften"
-                    id="howOften"
-                    onfocus="this.select()"
-                    required
-                /></span>
-                روز یکبار
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="./public/pics/clock.png" alt="timer" /> ساعت آبیاری
-            </td>
-            <td>
-              <img
-                src="./public/pics/cross.png"
-                alt="cross"
-                name="crossPic"
-                class="displayNone"
-              />
-              <div class="" id="irrClockDiv">
-                <span
-                  ><span
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <h3 id="autoIrrEn">آبیاری خودکار روشن است</h3>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center" colspan="2">
+                <button id="autoIrrButton" class="redButton">خاموش کردن</button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody id="autoIrrDetail">
+            <tr>
+              <td>
+                <img src="./public/pics/calendar.png" alt="timer" /> تاریخ
+                آبیاری بعدی
+              </td>
+              <td>
+                <img
+                  src="./public/pics/cross.png"
+                  alt="cross"
+                  name="crossPic"
+                  class="displayNone"
+                />
+                <span id="nextIrr" style="font-size: 20px">1403/01/25</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./public/pics/reapeat.png" alt="timer" /> تکرار آبیاری
+              </td>
+              <td>
+                <img
+                  src="./public/pics/cross.png"
+                  alt="cross"
+                  name="crossPic"
+                  class="displayNone"
+                />
+                <div class="" id="howOftenDiv">
+                  هر
+                  <span
                     ><input
                       type="number"
-                      name="minute"
-                      id="minute"
+                      name="howOften"
+                      id="howOften"
                       onfocus="this.select()"
-                      required /></span
-                ></span>
-                :
-                <span
-                  ><span
-                    ><input
-                      type="number"
-                      name="hour"
-                      id="hour"
                       required
-                      onfocus="this.select()" /></span
-                ></span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="./public/pics/timer.png" alt="timer" /> مدت آبیاری
-            </td>
-            <td>
-              <img
-                src="./public/pics/cross.png"
-                alt="cross"
-                name="crossPic"
-                class="displayNone"
-              />
-              <div
-                class=""
-                id="irrTimeDiv"
-                style="
-                  display: flex;
-                  justify-content: center;
-                  align-items: end;
-                  margin: 5px auto;
-                "
-              >
+                  /></span>
+                  روز یکبار
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./public/pics/clock.png" alt="timer" /> ساعت آبیاری
+              </td>
+              <td>
+                <img
+                  src="./public/pics/cross.png"
+                  alt="cross"
+                  name="crossPic"
+                  class="displayNone"
+                />
+                <div class="" id="irrClockDiv">
+                  <span
+                    ><span
+                      ><input
+                        type="number"
+                        name="minute"
+                        id="minute"
+                        onfocus="this.select()"
+                        required /></span
+                  ></span>
+                  :
+                  <span
+                    ><span
+                      ><input
+                        type="number"
+                        name="hour"
+                        id="hour"
+                        required
+                        onfocus="this.select()" /></span
+                  ></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./public/pics/timer.png" alt="timer" /> مدت آبیاری
+              </td>
+              <td>
+                <img
+                  src="./public/pics/cross.png"
+                  alt="cross"
+                  name="crossPic"
+                  class="displayNone"
+                />
                 <div
-                  style="display: grid; margin: auto 5px; text-align: center"
+                  class=""
+                  id="irrTimeDiv"
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: end;
+                    margin: 5px auto;
+                  "
                 >
-                  دقیقه<input
-                    type="number"
-                    name="AIdurationMin"
-                    id="AIdurationMin"
-                    onfocus="this.select()"
-                    required
-                    style="margin: auto"
-                  />
+                  <div
+                    style="display: grid; margin: auto 5px; text-align: center"
+                  >
+                    دقیقه<input
+                      type="number"
+                      name="AIdurationMin"
+                      id="AIdurationMin"
+                      onfocus="this.select()"
+                      required
+                      style="margin: auto"
+                    />
+                  </div>
+                  :
+                  <div style="display: grid; margin: auto 5px">
+                    ساعت<input
+                      type="number"
+                      name="AIdurationHour"
+                      id="AIdurationHour"
+                      onfocus="this.select()"
+                      required
+                      style="margin: auto"
+                    />
+                  </div>
                 </div>
-
-                :
-                <div style="display: grid; margin: auto 5px">
-                  ساعت<input
-                    type="number"
-                    name="AIdurationHour"
-                    id="AIdurationHour"
-                    onfocus="this.select()"
-                    required
-                    style="margin: auto"
-                  />
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="text-align: center" colspan="2">
-              <button id="autoIrrSave" class="loadingButton">ذخیره</button>
-            </td>
-          </tr>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center" colspan="2">
+                <button id="autoIrrSave" class="loadingButton">ذخیره</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="square recentIrrDiv">
@@ -290,7 +293,7 @@
     </div>
 
     <!-- <script src="./script/mqtt.js"></script> -->
-    <script src="./public/script/logic_http.js?v=1.4"></script>
+    <script src="./public/script/logic_http.js?v=1.5"></script>
     <script src="./public/script/irrRec.js?v=1.2"></script>
   </body>
 </html>

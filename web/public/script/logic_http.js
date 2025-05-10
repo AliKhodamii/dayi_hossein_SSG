@@ -226,6 +226,9 @@ function updateAutoIrr() {
     document.getElementById("autoIrrButton").classList.remove("greenButton");
     document.getElementById("autoIrrButton").classList.add("redButton");
 
+    // show autoIrr detail
+    document.getElementById("autoIrrDetail").style.display = "table-row-group";
+
     //request next irr date
     const Http = new XMLHttpRequest();
     const url =
@@ -293,6 +296,9 @@ function updateAutoIrr() {
     document.getElementById("autoIrrButton").classList.remove("loadingButton");
     document.getElementById("autoIrrButton").classList.add("greenButton");
     document.getElementById("autoIrrButton").classList.remove("redButton");
+
+    // hide autoIrr detail
+    document.getElementById("autoIrrDetail").style.display = "none";
 
     // update next irr section
     document.getElementsByName("crossPic")[0].classList.remove("displayNone");
