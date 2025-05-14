@@ -189,7 +189,10 @@ function valveIsOpen() {
   // update duration section
   document.getElementById("irrTimeTd").classList.add("displayNone");
   document.getElementById("irrigating").classList.remove("displayNone");
-  document.getElementById("durationTimeDiv").classList.add("displayNone");
+  document.getElementById("durationTimeDiv").style.display = "none";
+
+  // update div background color
+  document.getElementById("valveDiv").style.backgroundColor = "#bdeeb1";
 }
 
 function valveIsClose() {
@@ -209,6 +212,10 @@ function valveIsClose() {
   document.getElementById("irrTimeTd").classList.remove("displayNone");
   document.getElementById("irrigating").classList.add("displayNone");
   document.getElementById("durationTimeDiv").classList.remove("displayNone");
+  document.getElementById("durationTimeDiv").style.display = "grid";
+
+  // update div background color
+  document.getElementById("valveDiv").style.backgroundColor = "#f6fbff";
 }
 
 function updateAutoIrr() {

@@ -6,7 +6,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./public/css/sytle.css?v=1.6"
+      href="./public/css/sytle.css?v=1.7"
     />
     <title>SSG - Dayi Hossein</title>
   </head>
@@ -57,7 +57,7 @@
           </tr>
         </table>
       </div>
-      <div class="square valveDiv">
+      <div id="valveDiv" class="square valveDiv">
         <table class="valveTable">
           <tr>
             <td style="text-align: center; padding-bottom: 20px" colspan="2">
@@ -68,8 +68,8 @@
             <td style="width: 45%">
               <table>
                 <tr>
-                  <td id="irrTimeTd" style="width: 80%">
-                    <div style="width: 100px">
+                  <td id="irrTimeTd" style="width: 50%">
+                    <div style="font-size: 20px">
                       <img src="./public/pics/timer.png" alt="timer" />&nbsp;مدت
                       آبیاری :
                     </div>
@@ -79,41 +79,55 @@
                       در حال آبیاری...
                     </div>
 
-                    <div id="durationTimeDiv">
+                    <div
+                      id="durationTimeDiv"
+                      style="display: grid; justify-content: center"
+                    >
                       <div style="display: flex; align-items: end">
                         <div
                           style="
-                            display: table-cell;
+                            display: flex;
+                            flex-direction: column;
                             /* margin-right: 10px; */
                             text-align: center;
                           "
                         >
-                          دقیقه
-                          <input
-                            type="number"
-                            name="durationMin"
-                            id="durationMin"
-                            onfocus="this.select()"
-                            inputmode="numeric"
-                            pattern="\d*"
-                            maxlength="2"
-                            required
-                          />
+                          <div>دقیقه</div>
+                          <div>
+                            <input
+                              type="number"
+                              name="durationMin"
+                              id="durationMin"
+                              onfocus="this.select()"
+                              inputmode="numeric"
+                              pattern="\d*"
+                              maxlength="2"
+                              required
+                            />
+                          </div>
                         </div>
                         <span>&nbsp;:&nbsp;&nbsp;</span>
-                        <div style="display: table-cell; text-align: center">
-                          ساعت
-                          <input
-                            type="number"
-                            name="durationHour"
-                            id="durationHour"
-                            onfocus="this.select()"
-                            oninvalid="this.setCustomValidity('Selected quantity is more than stock status')"
-                            oninput="setCustomValidity()"
-                            max="24"
-                            min="0"
-                            required
-                          />
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+                          "
+                        >
+                          <div>ساعت</div>
+                          <div>
+                            <input
+                              type="number"
+                              name="durationHour"
+                              id="durationHour"
+                              onfocus="this.select()"
+                              oninvalid="this.setCustomValidity('Selected quantity is more than stock status')"
+                              oninput="setCustomValidity()"
+                              max="24"
+                              min="0"
+                              required
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -121,6 +135,8 @@
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
             <td style="width: 40%">
               <div class="buttonDiv">
                 <button id="valveButton" class="greenButton">باز کردن</button>
@@ -293,7 +309,7 @@
     </div>
 
     <!-- <script src="./script/mqtt.js"></script> -->
-    <script src="./public/script/logic_http.js?v=1.5"></script>
+    <script src="./public/script/logic_http.js?v=1.7"></script>
     <script src="./public/script/irrRec.js?v=1.2"></script>
   </body>
 </html>
