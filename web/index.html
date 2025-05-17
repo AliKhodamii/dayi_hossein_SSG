@@ -100,6 +100,7 @@
                               id="durationMin"
                               onfocus="this.select()"
                               inputmode="numeric"
+                              onchange="updateDurationText()"
                               pattern="\d*"
                               maxlength="2"
                               required
@@ -123,6 +124,7 @@
                               onfocus="this.select()"
                               oninvalid="this.setCustomValidity('Selected quantity is more than stock status')"
                               oninput="setCustomValidity()"
+                              onchange="updateDurationText()"
                               max="24"
                               min="0"
                               required
@@ -134,6 +136,20 @@
                   </td>
                 </tr>
               </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center">
+              <p
+                style="
+                  display: inline-block;
+                  border-bottom: 2px solid red;
+                  padding: 5px;
+                "
+              >
+                زمان تنظیم شده <span id="irr_setted_hour">2</span> ساعت و
+                <span id="irr_setted_minute">3</span> دقیقه
+              </p>
             </td>
           </tr>
           <tr>

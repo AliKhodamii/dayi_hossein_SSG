@@ -156,6 +156,14 @@ function updateHumidity() {
   document.getElementById("humidityPercent").textContent =
     sysInfo.humidity + "%";
 }
+
+function updateDurationText() {
+  let hour = Number(document.getElementById("durationHour").value);
+  let min = Number(document.getElementById("durationMin").value);
+  document.getElementById("irr_setted_hour").textContent = hour;
+  document.getElementById("irr_setted_minute").textContent = min;
+}
+
 function updateDuration() {
   updateDurationEn = false;
   var m = 0;
@@ -166,6 +174,8 @@ function updateDuration() {
   if (m.toString().length < 2) m = "0" + m;
   document.getElementById("durationMin").value = m;
   document.getElementById("durationHour").value = h;
+
+  updateDurationText();
 }
 
 function updateVlvStat() {
@@ -499,3 +509,14 @@ numberInputs.forEach((input) => {
 //     input.value = input.value.slice(0, 2);
 //   }
 // });
+
+const durationHourInput = document.getElementById("durationHour");
+const durationMinInput = document.getElementById("durationMin");
+
+durationHourInput.addEventListener("input", () => {
+  updateDurationText();
+});
+
+durationMinInput.addEventListener("input", () => {
+  updateDurationText();
+});
